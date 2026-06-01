@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Chợ Đồ Cũ Sinh Viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Chợ Đồ Cũ Sinh Viên</h1>
+
+    <div id="authSection" class="section">
+        <h3>Đăng nhập / Đăng ký</h3>
+        <input type="text" id="username" placeholder="Tên tài khoản">
+        <input type="password" id="password" placeholder="Mật khẩu">
+        <br>
+        <button onclick="login()">Đăng nhập</button>
+        <button onclick="register()">Đăng ký tài khoản mới</button>
+    </div>
+
+    <div id="appSection" class="hidden">
+        <p>
+            Xin chào, <b id="currentUser"></b>! 
+            <button onclick="toggleView('feed')">Trang chủ (Tìm mua)</button>
+            <button onclick="toggleView('myAds')">Quản lý tin của tôi</button>
+            <button onclick="logout()">Đăng xuất</button>
+        </p>
+
+        <div id="viewFeed">
+            <div class="section">
+                <h3>Đăng Bán Hàng Mới</h3>
+                <input type="text" id="itemName" placeholder="Tên món đồ"><br>
+                <select id="itemCategory">
+                    <option value="Đồ Điện Tử">Đồ Điện Tử</option>
+                    <option value="Đồ Gia Dụng">Đồ Gia Dụng</option>
+                    <option value="Sách / Tài liệu">Sách / Tài liệu</option>
+                </select><br>
+                <input type="number" id="itemPrice" placeholder="Giá bán (VNĐ)"><br>
+                <select id="itemCondition">
+                    <option value="Mới">Mới</option>
+                    <option value="Đã sử dụng">Đã sử dụng (Còn tốt)</option>
+                    <option value="Hỏng hóc">Cần sửa chữa</option>
+                </select><br>
+                <button onclick="postItem()">Đăng Tin</button>
+            </div>
+
+            <div class="section">
+                <h3>Tìm Kiếm & Bộ Lọc</h3>
+                <input type="text" id="searchName" placeholder="Tìm theo tên..." oninput="filterItems()">
+                <select id="filterCategory" onchange="filterItems()">
+                    <option value="All">Tất cả danh mục</option>
+                    <option value="Đồ Điện Tử">Đồ Điện Tử</option>
+                    <option value="Đồ Gia Dụng">Đồ Gia Dụng</option>
+                    <option value="Sách / Tài liệu">Sách / Tài liệu</option>
+                </select>
+                <input type="number" id="maxPrice" placeholder="Giá tối đa (VNĐ)..." oninput="filterItems()">
+            </div>
+
+            <div class="section" id="itemsFeed">
+                </div>
+        </div>
+
+        <div id="viewMyAds" class="hidden">
+            <h2>Tin đăng của tôi</h2>
+            
+            <div id="editForm" class="section hidden" style="background-color: #fffacd;">
+                <h3>Sửa Thông Tin Sản Phẩm</h3>
+                <input type="hidden" id="editItemId">
+                <input type="text" id="editItemName"><br>
+                <input type="number" id="editItemPrice" placeholder="Giá mới (VNĐ)"><br>
+                <button onclick="saveEdit()">Lưu thay đổi</button>
+                <button onclick="cancelEdit()">Hủy</button>
+            </div>
+
+            <div class="section" id="myItemsFeed">
+                </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

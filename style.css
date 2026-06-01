@@ -1,0 +1,43 @@
+body { 
+    font-family: Arial, sans-serif; 
+    padding: 20px; 
+}
+
+.section { 
+    border: 1px solid #ccc; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border-radius: 5px; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+.item-card { 
+    border: 1px dashed #999; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+}
+
+.my-item-card { 
+    border: 1px solid blue; 
+    background-color: #f0f8ff; 
+} 
+
+input, select, button { 
+    margin: 5px 0px; 
+    padding: 5px; 
+}
+
+.status-badge { 
+    font-weight: bold; 
+    color: white; 
+    padding: 2px 5px; 
+    border-radius: 3px; 
+    font-size: 12px;
+}
+
+.status-DangBan { background-color: green; }
+.status-DaDatHang { background-color: orange; }
+.status-DaBan { background-color: red; }
